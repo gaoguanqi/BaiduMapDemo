@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.maple.baidu.demo.location.LocationActivity;
 import com.maple.baidu.demo.map.MapActivity;
+import com.maple.baidu.demo.map.MarkerActivity;
 import com.maple.baidu.demo.navigation.NavigationActivity;
 import com.maple.baidu.utils.LogUtils;
 import com.maple.baidu.utils.PermissionUtil;
@@ -50,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    @OnClick({R.id.btn_location, R.id.btn_map, R.id.btn_nav})
+    @OnClick({R.id.btn_location, R.id.btn_map, R.id.btn_nav,R.id.btn_marker})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.btn_location:
@@ -61,6 +62,9 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.btn_nav:
                 startActivity(new Intent(this, NavigationActivity.class));
+                break;
+            case R.id.btn_marker:
+                startActivity(new Intent(this, MarkerActivity.class));
                 break;
             default:
                 break;

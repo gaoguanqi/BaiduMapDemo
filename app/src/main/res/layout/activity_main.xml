@@ -29,6 +29,11 @@
             android:layout_height="wrap_content"
             android:text="导航" />
 
+        <Button
+            android:id="@+id/btn_marker"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Marker" />
     </androidx.appcompat.widget.LinearLayoutCompat>
 
 </androidx.core.widget.NestedScrollView>

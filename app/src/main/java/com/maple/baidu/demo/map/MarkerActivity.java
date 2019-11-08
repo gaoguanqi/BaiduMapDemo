@@ -96,6 +96,12 @@ public class MarkerActivity extends AppCompatActivity implements BaiduMap.OnMark
         final InfoWindow infoWindow = new InfoWindow(view, marker.getPosition(), -100);
         mBaiduMap.showInfoWindow(infoWindow);
 
+
+        //设置地图中心点
+        MapStatus.Builder builder = new MapStatus.Builder();
+        builder.target(marker.getPosition());
+        mBaiduMap.animateMapStatus(MapStatusUpdateFactory.newMapStatus(builder.build()));
+
         return false;
     }
 }

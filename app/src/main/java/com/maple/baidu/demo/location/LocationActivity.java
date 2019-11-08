@@ -9,7 +9,10 @@ import com.baidu.location.BDAbstractLocationListener;
 import com.baidu.location.BDLocation;
 import com.baidu.location.LocationClient;
 import com.baidu.location.LocationClientOption;
+import com.baidu.mapapi.CoordType;
+import com.baidu.mapapi.SDKInitializer;
 import com.maple.baidu.R;
+import com.maple.baidu.utils.LogUtils;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -141,6 +144,12 @@ public class LocationActivity extends AppCompatActivity {
             String district = location.getDistrict();    //获取区县
             String street = location.getStreet();    //获取街道信息
 
+            double lon = location.getLongitude();//经度
+            double lat = location.getLatitude();//纬度
+            CoordType type = SDKInitializer.getCoordType();//BD09LL或者GCJ02坐标
+
+            LogUtils.logGGQ("当前坐标系->>>"+type.name());
+            LogUtils.logGGQ("当前位置-->>>lon: "+lon+"---lat："+lat);
             tvCurrent.setText(
                     "详细地址:" + addr + "\n"
                             + "国家:" + country + "\n"

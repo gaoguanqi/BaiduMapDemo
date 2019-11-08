@@ -101,6 +101,6 @@
             android:id="@+id/tv_address"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="上海" />
+            android:text="address" />
     </LinearLayout>
 </androidx.appcompat.widget.LinearLayoutCompat>

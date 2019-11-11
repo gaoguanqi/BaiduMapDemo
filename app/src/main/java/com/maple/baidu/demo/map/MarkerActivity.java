@@ -5,6 +5,8 @@ import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -38,8 +40,15 @@ public class MarkerActivity extends AppCompatActivity implements BaiduMap.OnMark
     MapView mMapView;
 
     private BaiduMap mBaiduMap;
+//    private BitmapDescriptor currentDescriptor;
+//    private View currentDescriptorView;
+//
+//    private BitmapDescriptor normalDescriptor;
+//    private View normalDescriptorView;
+
     private BitmapDescriptor descriptor;
-    private BitmapDescriptor poDescriptor;
+    private View descriptorView;
+
     private List<LatLng> mLatLngs;
     private List<Marker> mMarkers;
 
@@ -50,8 +59,16 @@ public class MarkerActivity extends AppCompatActivity implements BaiduMap.OnMark
         ButterKnife.bind(this);
         // 地图初始化
         mBaiduMap = mMapView.getMap();
-        descriptor = BitmapDescriptorFactory.fromResource(R.drawable.icon_gcoding);
-        poDescriptor = BitmapDescriptorFactory.fromResource(R.drawable.icon_marker);
+//        descriptor = BitmapDescriptorFactory.fromResource(R.drawable.icon_gcoding);
+//        poDescriptor = BitmapDescriptorFactory.fromResource(R.drawable.icon_marker);
+//        currentDescriptorView = this.getLayoutInflater().inflate(R.layout.layout_current_marker,null);
+//        currentDescriptor = BitmapDescriptorFactory.fromView(currentDescriptorView);
+//
+//        normalDescriptorView = this.getLayoutInflater().inflate(R.layout.layout_normal_marker,null);
+//        normalDescriptor = BitmapDescriptorFactory.fromView(normalDescriptorView);
+
+
+
         mLatLngs = new ArrayList<>();
         mMarkers = new ArrayList<>();
 
@@ -68,6 +85,12 @@ public class MarkerActivity extends AppCompatActivity implements BaiduMap.OnMark
             Bundle mBundle = new Bundle();
             mBundle.putInt("id", i);
             LatLng latLng = list.get(i);
+            descriptorView = this.getLayoutInflater().inflate(R.layout.layout_marker,null);
+            ImageView ivIcon = descriptorView.findViewById(R.id.iv_marker_icon);
+            ivIcon.setBackground(this.getResources().getDrawable(R.drawable.icon_gcoding));
+            TextView tvName = descriptorView.findViewById(R.id.tv_marker_name);
+            tvName.setText("测试"+i);
+            descriptor = BitmapDescriptorFactory.fromView(descriptorView);
             //创建marker
             OverlayOptions markerOptions = new MarkerOptions()
                     .position(latLng)
@@ -87,11 +110,24 @@ public class MarkerActivity extends AppCompatActivity implements BaiduMap.OnMark
 
     @Override
     public boolean onMarkerClick(Marker marker) {
+        Bundle mBundle = marker.getExtraInfo();
+        int id = mBundle.getInt("id");
+
         //动态更换marker 图标
         for (int i = 0; i < mMarkers.size(); i++) {
+            descriptorView = this.getLayoutInflater().inflate(R.layout.layout_marker,null);
+            TextView tvName = descriptorView.findViewById(R.id.tv_marker_name);
+            tvName.setText("点击测试"+i);
+            ImageView ivIcon = descriptorView.findViewById(R.id.iv_marker_icon);
+            if(i == id){
+                ivIcon.setBackground(this.getResources().getDrawable(R.drawable.icon_marker));
+            }else {
+                ivIcon.setBackground(this.getResources().getDrawable(R.drawable.icon_gcoding));
+            }
+            descriptor = BitmapDescriptorFactory.fromView(descriptorView);
             mMarkers.get(i).setIcon(descriptor);
         }
-        marker.setIcon(poDescriptor);
+
         View view = View.inflate(this, R.layout.info_window, null);
         final InfoWindow infoWindow = new InfoWindow(view, marker.getPosition(), -100);
         mBaiduMap.showInfoWindow(infoWindow);

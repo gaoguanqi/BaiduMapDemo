@@ -34,6 +34,28 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Marker" />
+
+        <Button
+            android:id="@+id/btn_test"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="测试" />
+        <Button
+            android:id="@+id/btn_tab"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TAb" />
+
+        <Button
+            android:id="@+id/btn_viewPage2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="ViewPage2" />
+        <Button
+            android:id="@+id/btn_doubles"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="doubles" />
     </androidx.appcompat.widget.LinearLayoutCompat>
 
 </androidx.core.widget.NestedScrollView>

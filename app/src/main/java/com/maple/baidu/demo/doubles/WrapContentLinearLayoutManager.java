@@ -2,6 +2,7 @@ package com.maple.baidu.demo.doubles;
 
 import android.content.Context;
 import android.util.AttributeSet;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.widget.HorizontalScrollView;
 
@@ -57,5 +58,12 @@ public class WrapContentLinearLayoutManager extends LinearLayoutManager {
         public int calculateDtToFit(int viewStart, int viewEnd, int boxStart, int boxEnd, int snapPreference) {
             return (boxStart + (boxEnd - boxStart) / 2) - (viewStart + (viewEnd - viewStart) / 2);
         }
+
+        @Override
+        protected float calculateSpeedPerPixel(DisplayMetrics displayMetrics) {
+//            return super.calculateSpeedPerPixel(displayMetrics);
+            return 100.0F / (float)displayMetrics.densityDpi; // 设置滚动速度
+        }
     }
+
 }

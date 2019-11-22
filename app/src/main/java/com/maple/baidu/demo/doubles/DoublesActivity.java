@@ -64,7 +64,7 @@ public class DoublesActivity extends AppCompatActivity {
             @Override
             public void onItemClick(int pos) {
                 tabManager.smoothScrollToPosition(rvTab, new RecyclerView.State(), pos);
-                rvList.smoothScrollToPosition(pos);
+                listManager.smoothScrollToPosition(rvList, new RecyclerView.State(), pos);
             }
         });
 
@@ -76,11 +76,11 @@ public class DoublesActivity extends AppCompatActivity {
                 ItemBean item = new ItemBean(false,"新"+list.size());
                 list.add(item);
                 tabList.add(item);
-                tabListAdapter.notifyItemChanged(tabList.size());
-                myListAdapter.notifyItemChanged(list.size());
+                tabListAdapter.notifyDataSetChanged();
+                myListAdapter.notifyDataSetChanged();
 
-                rvTab.smoothScrollToPosition(tabList.size());
-                rvList.smoothScrollToPosition(list.size());
+                rvTab.smoothScrollToPosition(tabList.size() - 1);
+                listManager.smoothScrollToPosition(rvList, new RecyclerView.State(), tabList.size() - 1);
             }
 
             @Override
@@ -92,20 +92,6 @@ public class DoublesActivity extends AppCompatActivity {
                 myListAdapter.notifyDataSetChanged();
             }
         });
-
-        rvList.addOnScrollListener(new RecyclerView.OnScrollListener() {
-            @Override
-            public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
-                super.onScrolled(recyclerView, dx, dy);
-            }
-
-            @Override
-            public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int newState) {
-                super.onScrollStateChanged(recyclerView, newState);
-                LogUtils.logGGQ("onScrollStateChanged  newState:"+newState);
-            }
-        });
-
 
     }
 

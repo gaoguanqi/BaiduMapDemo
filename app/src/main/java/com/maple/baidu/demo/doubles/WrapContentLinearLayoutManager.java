@@ -39,13 +39,15 @@ public class WrapContentLinearLayoutManager extends LinearLayoutManager {
 
     @Override
     public void smoothScrollToPosition(RecyclerView recyclerView, RecyclerView.State state, int position) {
-       if(orientation == LinearLayoutManager.HORIZONTAL){
-           RecyclerView.SmoothScroller smoothScroller = new CenterSmoothScroller(recyclerView.getContext());
-           smoothScroller.setTargetPosition(position);
-           startSmoothScroll(smoothScroller);
-       }else {
-           super.smoothScrollToPosition(recyclerView, state, position);
-       }
+        if (orientation == LinearLayoutManager.HORIZONTAL) {
+            RecyclerView.SmoothScroller smoothScroller = new CenterSmoothScroller(recyclerView.getContext());
+            smoothScroller.setTargetPosition(position);
+            startSmoothScroll(smoothScroller);
+        } else {
+            TopSmoothScroller topSmoothScroller = new TopSmoothScroller(recyclerView.getContext());
+            topSmoothScroller.setTargetPosition(position);
+            startSmoothScroll(topSmoothScroller);
+        }
     }
 
     private static class CenterSmoothScroller extends LinearSmoothScroller {
@@ -63,6 +65,19 @@ public class WrapContentLinearLayoutManager extends LinearLayoutManager {
         protected float calculateSpeedPerPixel(DisplayMetrics displayMetrics) {
 //            return super.calculateSpeedPerPixel(displayMetrics);
             return 100.0F / (float)displayMetrics.densityDpi; // 设置滚动速度
+        }
+    }
+
+    private static class TopSmoothScroller extends LinearSmoothScroller {
+
+        public TopSmoothScroller(Context context) {
+            super(context);
+        }
+
+        @Override
+        protected int getVerticalSnapPreference() {
+            //return super.getVerticalSnapPreference();
+            return SNAP_TO_START; // 保持在顶部
         }
     }
 

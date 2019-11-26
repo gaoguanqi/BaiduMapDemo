@@ -23,8 +23,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
-        <activity android:name=".demo.doubles.DoublesActivity"></activity>
-        <activity android:name=".ViewPage2Activity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -60,6 +58,16 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".demo.story.StoryActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".demo.bstest.BsTestActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".demo.doubles.DoublesActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ViewPage2Activity"
             android:screenOrientation="portrait" />
     </application>
 

@@ -12,6 +12,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.GravityEnum;
 import com.afollestad.materialdialogs.MaterialDialog;
+import com.baidu.mapapi.model.LatLng;
+import com.baidu.mapapi.utils.CoordinateConverter;
 import com.blankj.utilcode.util.FileUtils;
 import com.blankj.utilcode.util.ToastUtils;
 import com.maple.baidu.R;
@@ -19,6 +21,8 @@ import com.maple.baidu.demo.location.LocationActivity;
 import com.maple.baidu.demo.map.MapActivity;
 import com.maple.baidu.demo.map.MarkerActivity;
 import com.maple.baidu.demo.navigation.NavigationActivity;
+import com.maple.baidu.utils.GPSUtils;
+import com.maple.baidu.utils.LogUtils;
 import com.maple.baidu.utils.MaterialDialogUtils;
 
 import butterknife.ButterKnife;
@@ -36,7 +40,7 @@ public class TestActivity extends AppCompatActivity {
 
     }
 
-    @OnClick({R.id.btn_file, R.id.btn_download})
+    @OnClick({R.id.btn_file, R.id.btn_download,R.id.btn_distance})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.btn_file:
@@ -46,6 +50,29 @@ public class TestActivity extends AppCompatActivity {
                 break;
             case R.id.btn_download:
                 showDialog("下载文件啊啊啊");
+                break;
+            case R.id.btn_distance:
+
+
+                //百度定位当前位置
+                double startLon = 121.432619;
+                double startLat = 31.188608;
+
+
+                //服务端配置基站位置，需要转换 到百度坐标系
+                double endLon = 117.238312;
+                double endLat = 31.853603;
+
+
+
+                //将坐标转化成百度地图的坐标
+                CoordinateConverter converter = new CoordinateConverter();
+                converter.from(CoordinateConverter.CoordType.GPS);
+                converter.coord(new LatLng(endLat,endLon));
+                final LatLng desLatLng = converter.convert();
+                double distance = GPSUtils.getDistance(startLat, startLon, desLatLng.latitude, desLatLng.longitude);
+                LogUtils.logGGQ("距离："+distance +"km");
+
                 break;
             default:
                 break;

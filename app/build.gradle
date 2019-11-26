@@ -23,9 +23,30 @@ android {
         }
 
     }
+
+    signingConfigs {
+        debug {
+            storeFile file('keystore/MapleKeyStore.jks')
+            storePassword "gaoguanqi"
+            keyAlias "Maple"
+            keyPassword "gaoguanqi"
+        }
+        release {
+            storeFile file('keystore/MapleKeyStore.jks')
+            storePassword "gaoguanqi"
+            keyAlias "Maple"
+            keyPassword "gaoguanqi"
+        }
+    }
     buildTypes {
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+
         release {
             minifyEnabled false
+            signingConfig signingConfigs.release//需要使用正式证书签名，才能发布到fir.im
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }

@@ -20,4 +20,11 @@
         android:layout_height="wrap_content"
         android:text="文件下载"
         />
+
+    <Button
+        android:id="@+id/btn_distance"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="距离"
+        />
 </LinearLayout>

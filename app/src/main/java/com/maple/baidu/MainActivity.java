@@ -6,6 +6,7 @@ import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.maple.baidu.demo.bstest.BsTestActivity;
 import com.maple.baidu.demo.doubles.DoublesActivity;
 import com.maple.baidu.demo.location.LocationActivity;
 import com.maple.baidu.demo.map.MapActivity;
@@ -54,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    @OnClick({R.id.btn_location, R.id.btn_map, R.id.btn_nav,R.id.btn_marker,R.id.btn_test,R.id.btn_tab,R.id.btn_viewPage2,R.id.btn_doubles})
+    @OnClick({R.id.btn_location, R.id.btn_map, R.id.btn_nav,R.id.btn_marker,R.id.btn_test,R.id.btn_tab,R.id.btn_viewPage2,R.id.btn_doubles,R.id.btn_bstest})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.btn_location:
@@ -80,6 +81,9 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.btn_doubles:
                 startActivity(new Intent(this, DoublesActivity.class));
+                break;
+            case R.id.btn_bstest:
+                startActivity(new Intent(this, BsTestActivity.class));
                 break;
             default:
                 break;

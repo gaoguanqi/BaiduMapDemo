@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">BaiduMapDemo</string>
+
+    <array name="array_floor">
+        <item>高</item>
+        <item>中</item>
+        <item>低</item>
+        <item>地下室</item>
+        <item>电梯</item>
+    </array>
 </resources>

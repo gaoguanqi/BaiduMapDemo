@@ -69,6 +69,17 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="bstest" />
+
+        <Button
+            android:id="@+id/btn_telephone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="telephone" />
+        <Button
+            android:id="@+id/btn_spinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="spinner" />
     </androidx.appcompat.widget.LinearLayoutCompat>
 
 </androidx.core.widget.NestedScrollView>

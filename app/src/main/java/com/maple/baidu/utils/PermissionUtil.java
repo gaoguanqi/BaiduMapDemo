@@ -182,7 +182,6 @@ public class PermissionUtil {
         requestPermission(requestPermission, rxPermissions, Manifest.permission.READ_PHONE_STATE);
     }
 
-
     /**
      * 请求本APP所需要的所有权限
      */
@@ -192,7 +191,13 @@ public class PermissionUtil {
                 Manifest.permission.WRITE_EXTERNAL_STORAGE,
                 Manifest.permission.ACCESS_FINE_LOCATION,
                 Manifest.permission.ACCESS_COARSE_LOCATION,
-                Manifest.permission.READ_PHONE_STATE
+                Manifest.permission.READ_PHONE_STATE,
+                Manifest.permission.ACCESS_WIFI_STATE,
+                Manifest.permission.RECEIVE_BOOT_COMPLETED,
+                Manifest.permission.VIBRATE,
+                Manifest.permission.READ_CALL_LOG,
+                Manifest.permission.WRITE_CALL_LOG ,
+                Manifest.permission.PROCESS_OUTGOING_CALLS
         );
     }
 }

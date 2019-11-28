@@ -52,8 +52,8 @@ public class BsTestActivity extends AppCompatActivity {
     private BitmapDescriptor currDes,bsDes;
     private int currentDirection = 0;
 
-    private double lon = 117.238312;
-    private double lat = 31.853603;
+    private double lon = 121.421897;
+    private double lat = 31.183865;
 
 
     private double currentLat;

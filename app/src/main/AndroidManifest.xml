@@ -29,7 +29,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
-        <activity android:name=".demo.spinner.SpinnerActivity"></activity>
+        <activity android:name=".demo.tablayout.TabLayoutActivity"/>
+        <activity android:name=".demo.remove.ListRemoveActivity" />
+        <activity android:name=".demo.spinner.SpinnerActivity" />
         <activity android:name=".demo.telephone.TelePhoneActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>

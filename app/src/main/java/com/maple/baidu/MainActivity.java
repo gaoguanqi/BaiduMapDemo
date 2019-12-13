@@ -12,8 +12,10 @@ import com.maple.baidu.demo.location.LocationActivity;
 import com.maple.baidu.demo.map.MapActivity;
 import com.maple.baidu.demo.map.MarkerActivity;
 import com.maple.baidu.demo.navigation.NavigationActivity;
+import com.maple.baidu.demo.remove.ListRemoveActivity;
 import com.maple.baidu.demo.spinner.SpinnerActivity;
 import com.maple.baidu.demo.story.StoryActivity;
+import com.maple.baidu.demo.tablayout.TabLayoutActivity;
 import com.maple.baidu.demo.telephone.TelePhoneActivity;
 import com.maple.baidu.demo.test.TestActivity;
 import com.maple.baidu.utils.LogUtils;
@@ -57,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    @OnClick({R.id.btn_location, R.id.btn_map, R.id.btn_nav,R.id.btn_marker,R.id.btn_test,R.id.btn_tab,R.id.btn_viewPage2,R.id.btn_doubles,R.id.btn_bstest,R.id.btn_telephone,R.id.btn_spinner})
+    @OnClick({R.id.btn_location, R.id.btn_map, R.id.btn_nav,R.id.btn_marker,R.id.btn_test,R.id.btn_tab,R.id.btn_viewPage2,R.id.btn_doubles,R.id.btn_bstest,R.id.btn_telephone,R.id.btn_spinner,R.id.btn_remove,R.id.btn_tablayout})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.btn_location:
@@ -92,6 +94,12 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.btn_spinner:
                 startActivity(new Intent(this, SpinnerActivity.class));
+                break;
+            case R.id.btn_remove:
+                startActivity(new Intent(this, ListRemoveActivity.class));
+                break;
+            case R.id.btn_tablayout:
+                startActivity(new Intent(this, TabLayoutActivity.class));
                 break;
             default:
                 break;

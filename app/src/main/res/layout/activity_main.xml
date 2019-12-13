@@ -72,6 +72,17 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="spinner" />
+
+        <Button
+            android:id="@+id/btn_remove"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Remove" />
+        <Button
+            android:id="@+id/btn_tablayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tablayout" />
     </androidx.appcompat.widget.LinearLayoutCompat>
 
 </androidx.core.widget.NestedScrollView>

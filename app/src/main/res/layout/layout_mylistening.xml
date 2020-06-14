@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:orientation="horizontal">
+
+    <LinearLayout
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:background="@drawable/shape_listening_bg"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <com.wang.avi.AVLoadingIndicatorView
+            android:id="@+id/av"
+            style="@style/AVLoadingIndicatorView.Small"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            app:indicatorColor="@color/white"
+            app:indicatorName="LineScalePulseOutRapidIndicator" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:paddingLeft="20dp"
+        android:textSize="14sp"
+        android:textColor="@color/white"
+        android:text="我正在听..." />
+</LinearLayout>

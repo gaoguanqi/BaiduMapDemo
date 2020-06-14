@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.maple.baidu.demo.bstest.BsTestActivity;
 import com.maple.baidu.demo.doubles.DoublesActivity;
+import com.maple.baidu.demo.line.PaintLineActivity;
 import com.maple.baidu.demo.location.LocationActivity;
 import com.maple.baidu.demo.map.MapActivity;
 import com.maple.baidu.demo.map.MarkerActivity;
@@ -59,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    @OnClick({R.id.btn_location, R.id.btn_map, R.id.btn_nav,R.id.btn_marker,R.id.btn_test,R.id.btn_tab,R.id.btn_viewPage2,R.id.btn_doubles,R.id.btn_bstest,R.id.btn_telephone,R.id.btn_spinner,R.id.btn_remove,R.id.btn_tablayout})
+    @OnClick({R.id.btn_location, R.id.btn_map, R.id.btn_nav,R.id.btn_marker,R.id.btn_test,R.id.btn_tab,R.id.btn_viewPage2,R.id.btn_doubles,R.id.btn_bstest,R.id.btn_telephone,R.id.btn_spinner,R.id.btn_remove,R.id.btn_tablayout,R.id.btn_paintline})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.btn_location:
@@ -100,6 +101,9 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.btn_tablayout:
                 startActivity(new Intent(this, TabLayoutActivity.class));
+                break;
+            case R.id.btn_paintline:
+                startActivity(new Intent(this, PaintLineActivity.class));
                 break;
             default:
                 break;

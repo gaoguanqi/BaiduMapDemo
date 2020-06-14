@@ -78,6 +78,9 @@
         <activity
             android:name=".ViewPage2Activity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".demo.line.PaintLineActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>
